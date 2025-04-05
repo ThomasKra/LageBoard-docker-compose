@@ -1,0 +1,39 @@
+services:
+  einsatzverwaltung:
+    container_name: einsatzverwaltung
+    image: tkrauseiuk/einsatzleitsoftware:latest
+    # alternative: image: tkrauseiuk/einsatzleitsoftware:beta_latest
+    volumes:
+      - ./storage:/var/www/html/storage
+      - ./configs/einsatzverwaltung.env:/var/www/html/.env
+      - ./configs/user_seed.json:/var/www/html/user_seed.json
+    # Ggf. anpassen, wenn die Ports in der Dockerfile anders definiert sind
+    # Standardmäßig ist der Server über Port 80 erreichbar
+    # ports:
+      # - 8080:80
+    networks:
+      - einsatzverwaltung
+  mariadb:
+    container_name: mariadb
+    env_file: 
+      - ./configs/mariadb.env
+    image: mariadb:latest
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    networks:
+      - einsatzverwaltung
+
+  # adminer:
+  #   image: adminer
+  #   restart: always
+  #   ports:
+  #     - 8980:8080
+  #   networks:
+  #     - einsatzverwaltung
+
+networks:
+    einsatzverwaltung:
+        driver: bridge
+
+volumes:
+  mariadb_data:  # Definiere das Volume für MariaDB
