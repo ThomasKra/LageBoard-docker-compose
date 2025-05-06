@@ -1,18 +1,18 @@
 services:
-  einsatzverwaltung:
-    container_name: einsatzverwaltung
-    image: tkrauseiuk/einsatzleitsoftware:latest
-    # alternative: image: tkrauseiuk/einsatzleitsoftware:beta_latest
+  lageboard:
+    container_name: lageboard
+    image: tkrauseiuk/lageboard:latest
+    # alternative: image: tkrauseiuk/lageboard:beta_latest
     volumes:
       - ./storage:/var/www/html/storage
-      - ./configs/einsatzverwaltung.env:/var/www/html/.env
+      - ./configs/lageboard.env:/var/www/html/.env
       - ./configs/user_seed.json:/var/www/html/user_seed.json
     # Ggf. anpassen, wenn die Ports in der Dockerfile anders definiert sind
     # Standardmäßig ist der Server über Port 80 erreichbar
     # ports:
       # - 8080:80
     networks:
-      - einsatzverwaltung
+      - lageboard
   mariadb:
     container_name: mariadb
     env_file: 
@@ -21,7 +21,7 @@ services:
     volumes:
       - mariadb_data:/var/lib/mysql
     networks:
-      - einsatzverwaltung
+      - lageboard
 
   # adminer:
   #   image: adminer
@@ -29,10 +29,10 @@ services:
   #   ports:
   #     - 8980:8080
   #   networks:
-  #     - einsatzverwaltung
+  #     - lageboard
 
 networks:
-    einsatzverwaltung:
+    lageboard:
         driver: bridge
 
 volumes:

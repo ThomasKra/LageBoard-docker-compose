@@ -3,7 +3,7 @@
 temp/
 storage/
 einsatz*/
-configs/einsatzverwaltung.env
+configs/lageboard.env
 configs/user_seed.json
 *.tar.gz
 /.env
