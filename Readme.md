@@ -51,11 +51,11 @@ DB_PASSWORD=mypassword
 
 4. Weitere notwendige Änderungen in der `lageboard.env`
   - `APP_URL` muss auf die URL angepasst werden, unter der die LageBoard erreichbar ist. Wenn das Port-Mapping im Docker-Compose verwendet wird, muss der Port des Docker-Hosts hier verwendet werden.
-  - `EINSATZVERWALTUNG_SERVERNAME`: Hier kann ein Name für die Instanz eingetragen werden, z.B.: "IuK Rosenheim"
-  - `EINSATZVERWALTUNG_CUSTOM_HEADER_COLOR`: Wenn die Kopfzeile der Software eine andere Farbe haben soll, dann kann dies hier definiert werden - dazu muss der Kommentar am Anfang der Zeile entfernt werden. Jede CSS-Farbe ist ein gültiger Wert - als Referenz siehe https://developer.mozilla.org/de/docs/Web/CSS/named-color
-  - `EINSATZVERWALTUNG_MAPS_ACCESS_TOKEN`: Hier muss ein gültiger Access-Token für Mapbox eingetragen werden. Diesen bekommst du, indem du dich bei mapbox.com anmeldest.
-  - `EINSATZVERWALTUNG_MAPS_OFFLINE`: darf `true` oder `false` sein. Wenn `true`, dann werden die Kartendaten offline gespeichert.
-  - `EINSATZVERWALTUNG_MAPS_TILE_MAX_AGE_DAYS`: maximales Alter von offline-Tiles -- wird dieses Alter überschritten, wird automatisch versucht eine neue Version aus dem Internet zu laden.
+  - `LAGEBOARD_SERVERNAME`: Hier kann ein Name für die Instanz eingetragen werden, z.B.: "IuK Rosenheim"
+  - `LAGEBOARD_CUSTOM_HEADER_COLOR`: Wenn die Kopfzeile der Software eine andere Farbe haben soll, dann kann dies hier definiert werden - dazu muss der Kommentar am Anfang der Zeile entfernt werden. Jede CSS-Farbe ist ein gültiger Wert - als Referenz siehe https://developer.mozilla.org/de/docs/Web/CSS/named-color
+  - `LAGEBOARD_MAPS_ACCESS_TOKEN`: Hier muss ein gültiger Access-Token für Mapbox eingetragen werden. Diesen bekommst du, indem du dich bei mapbox.com anmeldest.
+  - `LAGEBOARD_MAPS_OFFLINE`: darf `true` oder `false` sein. Wenn `true`, dann werden die Kartendaten offline gespeichert.
+  - `LAGEBOARD_MAPS_TILE_MAX_AGE_DAYS`: maximales Alter von offline-Tiles -- wird dieses Alter überschritten, wird automatisch versucht eine neue Version aus dem Internet zu laden.
 5. Docker-Login
   Um das Docker-Image herunterladen zu können musst du dich vorher bei Docker anmelden. 
   
